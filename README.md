@@ -24,6 +24,8 @@ frontend
 
 
 Useful commands
+---------------
+
 ```brew install httpie```
 
 ```http POST http://localhost:1337/oauth/token grant_type=password client_id=mobileV1 client_secret=abc123456 username=user password=password -v```
