@@ -17,10 +17,14 @@ app.Models = app.Models || {};
           xhr.setRequestHeader('Authorization', "Bearer " + tokens.access_token);
         }
 
-        var promise = self.fetch({beforeSend: sendAuthentication});
-        promise.then(function(data){
-          console.log('this is secure cross domain');
+        var fetch = self.fetch({beforeSend: sendAuthentication});
+        fetch.then(function(data){
           $('.action-secured').text(JSON.stringify(data));
+        });
+
+        var post = self.save({}, {beforeSend: sendAuthentication});
+        post.then(function(data){
+          $('.action-post-secured').text(JSON.stringify(data));
         });
 
       });

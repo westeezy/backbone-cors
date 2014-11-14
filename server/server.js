@@ -9,22 +9,9 @@ var cors            = require('cors');
 var app             = express();
 
 app.use(cors());
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
-
-app.all('/oauth/token', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
-});
 
 app.get('/api', passport.authenticate('bearer', { session: false }), function (req, res) {
     res.send('API is running');
@@ -32,6 +19,11 @@ app.get('/api', passport.authenticate('bearer', { session: false }), function (r
 
 app.get('/api/info', passport.authenticate('bearer', { session: false }), function(req, res) {
   var data = {"hey":"guy","anumber":243,"anobject":{"whoa":"nuts","anarray":[1,2,"thr<h1>ee"],"more":"stuff"},"awesome":true,"bogus":false,"meaning":null,"japanese":"明日がある。","link":"http://jsonview.com","notLink":"http://jsonview.com is great"};
+  return res.send(data);
+});
+
+app.post('/api/info', passport.authenticate('bearer', { session: false }), function(req, res) {
+  var data = {msg: 'post successful'};
   return res.send(data);
 });
 

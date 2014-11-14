@@ -10,8 +10,8 @@ app.Models = app.Models || {};
     url: window.config.unsecureApi,
 
     initialize: function() {
-      var promise = this.fetch();
-      promise.then(function(data){
+      var fetch = this.fetch();
+      fetch.then(function(data){
         $('.action-unsecured').text(JSON.stringify(data));
       });
     }
