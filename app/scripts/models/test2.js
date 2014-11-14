@@ -10,17 +10,19 @@ app.Models = app.Models || {};
     url: config.secureApi,
 
     initialize: function() {
-      $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
-        options.crossDomain = true;
+      var self = this;
+      app.auth().then(function(tokens){
 
-        options.xhrFields = {
-          withCredentials: false
-        };
-      });
-      var promise = this.fetch();
-      promise.then(function(data){
-        console.log('this is secure cross domain');
-        $('.action-secured').text(JSON.stringify(data));
+        var sendAuthentication = function (xhr) {
+          xhr.setRequestHeader('Authorization', "Bearer " + tokens.access_token);
+        }
+
+        var promise = self.fetch({beforeSend: sendAuthentication});
+        promise.then(function(data){
+          console.log('this is secure cross domain');
+          $('.action-secured').text(JSON.stringify(data));
+        });
+
       });
     }
 

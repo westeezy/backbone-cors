@@ -18,6 +18,7 @@
 window.config = function(){
   return {
     unsecureApi: 'https://jsonp.nodejitsu.com/?url=http://jsonview.com/example.json',
-    secureApi: ''
+    secureApi: 'http://localhost:1337/api/info',
+    login: ' http://localhost:1337/oauth/token'
   }
 }();
