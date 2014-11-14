@@ -7,6 +7,7 @@ backend
 ---------------
 ```brew install mongo```
   - then follow the steps for starting it as a service
+
 ```cd server```
 
 ```npm install```
