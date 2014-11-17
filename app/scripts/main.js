@@ -7,7 +7,11 @@ window.app = {
   Views: {},
   Routers: {},
   auth: function(){
-    var promise = $.ajax({
+    var isIE = function() {
+      var myNav = navigator.userAgent.toLowerCase();
+      return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+    };
+    var opts = {
       type: "POST",
       url: config.login,
       crossDomain: true,
@@ -18,9 +22,14 @@ window.app = {
         "password": "password",
         "username": "user"
       }
-    });
+    };
 
-    return promise;
+    if(isIE() === 9){
+      opts.contentType = 'text/plain';
+      opts.dataType = 'json';
+    }
+
+    return $.ajax(opts);
   },
   init: function () {
     'use strict';

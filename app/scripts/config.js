@@ -1,4 +1,4 @@
-(function() {
+/*(function() {
   var proxiedSync = Backbone.sync;
   Backbone.sync = function(method, model, options) {
     options || (options = {});
@@ -14,7 +14,7 @@
     return proxiedSync(method, model, options);
   };
 })();
-
+*/
 window.config = function(){
   return {
     unsecureApi: 'https://jsonp.nodejitsu.com/?url=http://jsonview.com/example.json',
