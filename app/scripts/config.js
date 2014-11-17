@@ -19,7 +19,7 @@ window.config = function(){
   return {
     unsecureApi: 'https://jsonp.nodejitsu.com/?url=http://jsonview.com/example.json',
     /*secureApi: 'http://localhost:1337/api/info',*/
-    secureApi: 'http://frozen-coast-1269.herokuapp.com/',
-    login: ' http://localhost:1337/oauth/token'
+    secureApi: 'http://frozen-coast-1269.herokuapp.com/api/info',
+    login: 'http://frozen-coast-1269.herokuapp.com/oauth/token'
   }
 }();
