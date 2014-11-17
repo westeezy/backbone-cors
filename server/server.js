@@ -28,6 +28,7 @@ app.post('/api/info', passport.authenticate('bearer', { session: false }), funct
 });
 
 app.post('/oauth/token', oauth2.token);
+app.get('/oauth/token', oauth2.token);
 
 app.get('/api/userInfo',
     passport.authenticate('bearer', { session: false }),
