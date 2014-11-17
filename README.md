@@ -1,6 +1,9 @@
 backbone-cors
 =============
 
+Demo:
+http://westinwrz.me/backbone-cors/app/index.html
+
 IE 9 Note:
 http://stackoverflow.com/questions/12468741/cors-with-internet-explorer-support-for-basic-authentication
 
