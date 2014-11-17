@@ -1,6 +1,9 @@
 backbone-cors
 =============
 
+IE 9 Note:
+http://stackoverflow.com/questions/12468741/cors-with-internet-explorer-support-for-basic-authentication
+
 Make sure mongo is installed
 
 backend
